@@ -676,10 +676,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: chest
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39dc13cb3fe0f924dbd1771339f62867, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 39dc13cb3fe0f924dbd1771339f62867, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 852180713}
   m_SourcePrefab: {fileID: 100100000, guid: 39dc13cb3fe0f924dbd1771339f62867, type: 3}
 --- !u!1 &410087039
 GameObject:
@@ -2027,6 +2034,32 @@ CapsuleCollider:
   m_Height: 1.06
   m_Direction: 0
   m_Center: {x: 0, y: 0.04, z: 0}
+--- !u!1 &852180709 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 39dc13cb3fe0f924dbd1771339f62867, type: 3}
+  m_PrefabInstance: {fileID: 333436959}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &852180713
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852180709}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.899693, y: 0.5436581, z: 0.3630238}
+  m_Center: {x: -0.000000020997136, y: -0.000000025727907, z: 0.18348317}
 --- !u!1 &879435922
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,11 +25,16 @@ namespace OneHourGameJam589.Player
         private void FixedUpdate()
         {
             _rb.linearVelocity = new Vector3(_movX * _speed, _rb.linearVelocity.y, 0f);
+
+            if (transform.position.y < -50f)
+            {
+                transform.position = Vector3.zero;
+            }
         }
 
-        private void Update()
+        private void OnTriggerEnter(Collider other)
         {
-            if (transform.position.y < -30f)
+            if (other.name == "chest")
             {
                 _winText.SetActive(true);
             }
