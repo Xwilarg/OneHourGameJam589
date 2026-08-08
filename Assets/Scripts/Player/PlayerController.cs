@@ -11,6 +11,9 @@ namespace OneHourGameJam589.Player
         [SerializeField]
         private Transform _rot;
 
+        [SerializeField]
+        private GameObject _winText;
+
         private float _movX;
         private Rigidbody _rb;
 
@@ -22,6 +25,14 @@ namespace OneHourGameJam589.Player
         private void FixedUpdate()
         {
             _rb.linearVelocity = new Vector3(_movX * _speed, _rb.linearVelocity.y, 0f);
+        }
+
+        private void Update()
+        {
+            if (transform.position.y < -30f)
+            {
+                _winText.SetActive(true);
+            }
         }
 
         public void OnMovement(InputAction.CallbackContext value)
@@ -44,9 +55,27 @@ namespace OneHourGameJam589.Player
         {
             if (value.phase == InputActionPhase.Started)
             {
-                if (Physics.Raycast(transform.position, Vector3.down, out var info, 1.1f, LayerMask.GetMask("Map")))
+                var dir = value.ReadValue<Vector2>();
+                if (dir.y < -.5f)
                 {
-                    if (info.collider.TryGetComponent<Block>(out var block)) block.Click();
+                    if (Physics.Raycast(transform.position, Vector3.down, out var info, 1.1f, LayerMask.GetMask("Map")))
+                    {
+                        if (info.collider.TryGetComponent<Block>(out var block)) block.Click();
+                    }
+                }
+                else if (dir.x < -.5f)
+                {
+                    if (Physics.Raycast(transform.position, Vector3.left, out var info, 1.5f, LayerMask.GetMask("Map")))
+                    {
+                        if (info.collider.TryGetComponent<Block>(out var block)) block.Click();
+                    }
+                }
+                else if (dir.x > .5f)
+                {
+                    if (Physics.Raycast(transform.position, Vector3.right, out var info, 1.5f, LayerMask.GetMask("Map")))
+                    {
+                        if (info.collider.TryGetComponent<Block>(out var block)) block.Click();
+                    }
                 }
             }
         }

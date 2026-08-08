@@ -4,6 +4,7 @@ namespace OneHourGameJam589.Player
 {
     public class CameraFollow : MonoBehaviour
     {
+        [SerializeField]
         private Transform _follow;
 
         private void Update()

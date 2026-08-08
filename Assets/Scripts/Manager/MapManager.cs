@@ -11,7 +11,7 @@ namespace OneHourGameJam589.Manager
 
         private void Awake()
         {
-            for (int y = -1; y > -Size; y-=2)
+            for (int y = -1; y > -20; y-=2)
             {
                 for (int i = -Size; i <= Size; i += 2)
                 {
