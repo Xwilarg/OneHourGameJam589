@@ -8,6 +8,9 @@ namespace OneHourGameJam589.Player
         [SerializeField]
         private float _speed;
 
+        [SerializeField]
+        private Transform _rot;
+
         private float _movX;
         private Rigidbody _rb;
 
@@ -24,9 +27,28 @@ namespace OneHourGameJam589.Player
         public void OnMovement(InputAction.CallbackContext value)
         {
             _movX = value.ReadValue<Vector2>().x;
-            if (_movX > .5) _movX = 1;
-            else if (_movX < -.5f) _movX = -1;
+            if (_movX > .5)
+            {
+                _movX = 1;
+                //_rot.rotation = Quaternion.Euler(0f, 0f, 180f);
+            }
+            else if (_movX < -.5f)
+            {
+                _movX = -1;
+                //_rot.rotation = Quaternion.Euler(0f, 0f, 180f);
+            }
             else _movX = 0;
+        }
+
+        public void OnDig(InputAction.CallbackContext value)
+        {
+            if (value.phase == InputActionPhase.Started)
+            {
+                if (Physics.Raycast(transform.position, Vector3.down, out var info, 1.1f, LayerMask.GetMask("Map")))
+                {
+                    if (info.collider.TryGetComponent<Block>(out var block)) block.Click();
+                }
+            }
         }
     }
 }
