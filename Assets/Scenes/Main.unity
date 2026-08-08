@@ -3256,6 +3256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OneHourGameJam589.Manager.MapManager
   _blockPrefab: {fileID: 3505830870592750337, guid: afd08647b47ab514f885ee73b51bc26b, type: 3}
   _rockPrefab: {fileID: 7736210096411687357, guid: a5618740959ab374fbd24f0c4b752e6d, type: 3}
+  _grassPrefab: {fileID: 1810652895178541637, guid: abd80cb6ccc3db44da27dca897c27a52, type: 3}
 --- !u!1001 &1919965990
 PrefabInstance:
   m_ObjectHideFlags: 0

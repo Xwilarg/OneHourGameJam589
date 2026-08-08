@@ -5,7 +5,7 @@ namespace OneHourGameJam589.Manager
     public class MapManager : MonoBehaviour
     {
         [SerializeField]
-        private GameObject _blockPrefab, _rockPrefab;
+        private GameObject _blockPrefab, _rockPrefab, _grassPrefab;
 
         private const int Size = 10;
 
@@ -15,7 +15,18 @@ namespace OneHourGameJam589.Manager
             {
                 for (int i = -Size; i <= Size; i += 2)
                 {
-                    Instantiate(Mathf.Abs(i) == Size || Random.Range(0, 10) == 0 ? _rockPrefab : _blockPrefab, new Vector3(i, y, 0f), _blockPrefab.transform.rotation);
+                    if (Mathf.Abs(i) == Size || Random.Range(0, 10) == 0)
+                    {
+                        Instantiate(_rockPrefab, new Vector3(i, y, 0f), _blockPrefab.transform.rotation);
+                    }
+                    else if (y == -1)
+                    {
+                        Instantiate(_grassPrefab, new Vector3(i, y, 0f), _blockPrefab.transform.rotation);
+                    }
+                    else
+                    {
+                        Instantiate(_blockPrefab, new Vector3(i, y, 0f), _blockPrefab.transform.rotation);
+                    }
                 }
             }
             for (int y = 5; y > -1; y-=2)
